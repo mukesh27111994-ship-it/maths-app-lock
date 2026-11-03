@@ -12,6 +12,703 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Unpack Kids V2 Source Files Automatically
+      - name: Generate Kids V2 Project Files Automatically
         run: |
-          echo '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
+          if [ -d "MathsAppLock" ] && [ -f "MathsAppLock/build.gradle" ]; then
+            cp -rf MathsAppLock/* .
+          fi
+          mkdir -p app/src/main/java/com/example/mathlock
+          mkdir -p app/src/main/res/values
+          mkdir -p app/src/main/res/xml
+
+          cat << 'EOF' > gradle.properties
+          org.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8
+          android.useAndroidX=true
+          EOF
+
+          cat << 'EOF' > settings.gradle
+          pluginManagement { repositories { google(); mavenCentral(); gradlePluginPortal() } }
+          dependencyResolutionManagement { repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS); repositories { google(); mavenCentral() } }
+          rootProject.name = 'MathsAppLock'
+          include ':app'
+          EOF
+
+          cat << 'EOF' > build.gradle
+          plugins { id 'com.android.application' version '8.5.2' apply false }
+          EOF
+
+          cat << 'EOF' > app/build.gradle
+          plugins { id 'com.android.application' }
+          android {
+           namespace 'com.example.mathlock'
+           compileSdk 35
+           defaultConfig {
+            applicationId 'com.example.mathlock'
+            minSdk 24
+            targetSdk 28
+            versionCode 2
+            versionName '2.0-Kids'
+           }
+           compileOptions {
+            sourceCompatibility JavaVersion.VERSION_17
+            targetCompatibility JavaVersion.VERSION_17
+           }
+          }
+          EOF
+
+          cat << 'EOF' > app/src/main/AndroidManifest.xml
+          <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+           <uses-permission android:name="android.permission.VIBRATE"/>
+           <queries>
+            <intent>
+             <action android:name="android.intent.action.MAIN"/>
+             <category android:name="android.intent.category.LAUNCHER"/>
+            </intent>
+           </queries>
+           <application
+            android:allowBackup="false"
+            android:label="Maths App Lock"
+            android:theme="@android:style/Theme.Material.Light.NoActionBar"
+            android:usesCleartextTraffic="false">
+            <activity android:name=".MainActivity" android:exported="true">
+             <intent-filter>
+              <action android:name="android.intent.action.MAIN"/>
+              <category android:name="android.intent.category.LAUNCHER"/>
+             </intent-filter>
+            </activity>
+            <activity
+             android:name=".ChallengeActivity"
+             android:exported="false"
+             android:excludeFromRecents="true"
+             android:launchMode="singleTop" />
+            <service
+             android:name=".LockService"
+             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
+             android:exported="true"
+             android:label="Maths App Lock">
+             <intent-filter>
+              <action android:name="android.accessibilityservice.AccessibilityService"/>
+             </intent-filter>
+             <meta-data
+              android:name="android.accessibilityservice"
+              android:resource="@xml/accessibility_service"/>
+            </service>
+           </application>
+          </manifest>
+          EOF
+
+          cat << 'EOF' > app/src/main/res/values/strings.xml
+          <resources>
+           <string name="accessibility_desc">Detects which app is in the foreground to show a fun kids maths question for apps you select. It does not read screen content.</string>
+          </resources>
+          EOF
+
+          cat << 'EOF' > app/src/main/res/xml/accessibility_service.xml
+          <accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+           android:accessibilityEventTypes="typeWindowStateChanged"
+           android:accessibilityFeedbackType="feedbackGeneric"
+           android:notificationTimeout="80"
+           android:canRetrieveWindowContent="false"
+           android:description="@string/accessibility_desc"/>
+          EOF
+
+          cat << 'EOF' > app/src/main/java/com/example/mathlock/LockService.java
+          package com.example.mathlock;
+          import android.accessibilityservice.AccessibilityService;
+          import android.content.Context;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.os.SystemClock;
+          import android.view.accessibility.AccessibilityEvent;
+          import android.view.inputmethod.InputMethodInfo;
+          import android.view.inputmethod.InputMethodManager;
+          import java.util.HashMap;
+          import java.util.List;
+
+          public class LockService extends AccessibilityService {
+              static final HashMap<String, Long> unlocked = new HashMap<>();
+              static String currentTarget = null, previous = "";
+              static boolean challengeVisible = false;
+
+              @Override
+              public void onAccessibilityEvent(AccessibilityEvent e) {
+                  if (e == null || e.getEventType() != AccessibilityEvent.TYPE_WINDOW_STATE_CHANGED || e.getPackageName() == null) return;
+                  String pkg = e.getPackageName().toString();
+                  if (pkg.equals(getPackageName()) || pkg.equals("com.android.systemui") || pkg.contains("incallui") || pkg.contains("permissioncontroller") || isKeyboard(pkg)) return;
+
+                  SharedPreferences p = getSharedPreferences("lock", MODE_PRIVATE);
+                  if (!pkg.equals(previous)) {
+                      if (p.getInt("delay", 0) == 0 && previous.length() > 0) unlocked.remove(previous);
+                      previous = pkg;
+                  }
+                  if (!p.getBoolean("enabled", true) || !p.getBoolean("app_" + pkg, false)) return;
+                  Long until = unlocked.get(pkg);
+                  if (until != null && (until == Long.MAX_VALUE || SystemClock.elapsedRealtime() < until)) return;
+                  if (challengeVisible) return;
+                  currentTarget = pkg;
+                  challengeVisible = true;
+                  Intent i = new Intent(this, ChallengeActivity.class)
+                          .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                  i.putExtra("locked_package", pkg);
+                  try { startActivity(i); } catch (RuntimeException ex) { challengeVisible = false; }
+              }
+
+              private boolean isKeyboard(String pkg) {
+                  try {
+                      InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                      if (imm != null) {
+                          List<InputMethodInfo> list = imm.getEnabledInputMethodList();
+                          for (InputMethodInfo info : list) {
+                              if (pkg.equals(info.getPackageName())) return true;
+                          }
+                      }
+                  } catch (Exception ignored) {}
+                  return false;
+              }
+
+              @Override public void onInterrupt() { challengeVisible = false; }
+              @Override public void onDestroy() { challengeVisible = false; super.onDestroy(); }
+          }
+          EOF
+
+          cat << 'EOF' > app/src/main/java/com/example/mathlock/MainActivity.java
+          package com.example.mathlock;
+          import android.app.Activity;
+          import android.app.AlertDialog;
+          import android.content.ComponentName;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.content.pm.PackageManager;
+          import android.content.pm.ResolveInfo;
+          import android.graphics.Color;
+          import android.graphics.Typeface;
+          import android.graphics.drawable.GradientDrawable;
+          import android.os.Bundle;
+          import android.provider.Settings;
+          import android.util.TypedValue;
+          import android.view.Gravity;
+          import android.view.View;
+          import android.widget.*;
+          import java.util.*;
+
+          public class MainActivity extends Activity {
+              SharedPreferences prefs;
+              LinearLayout root, apps;
+              TextView status, starsBadge;
+              Button permission;
+
+              @Override
+              public void onCreate(Bundle b) {
+                  super.onCreate(b);
+                  prefs = getSharedPreferences("lock", MODE_PRIVATE);
+                  show();
+              }
+
+              @Override
+              protected void onResume() {
+                  super.onResume();
+                  if (status != null) {
+                      boolean on = serviceEnabled();
+                      status.setText(on ? "✅ Accessibility service: ON — Kids Protection Active!" : "⚠️ Accessibility service: OFF — enable to protect apps");
+                      status.setTextColor(on ? Color.parseColor("#15803D") : Color.parseColor("#B45309"));
+                  }
+                  if (starsBadge != null) {
+                      starsBadge.setText("⭐ Total Stars Won: " + prefs.getInt("kids_stars", 0) + " 🌟");
+                  }
+              }
+
+              boolean serviceEnabled() {
+                  String s = Settings.Secure.getString(getContentResolver(), Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
+                  if (s == null) return false;
+                  for (String part : s.split(":")) {
+                      ComponentName c = ComponentName.unflattenFromString(part);
+                      if (c != null && c.getPackageName().equals(getPackageName()) && c.getClassName().equals(LockService.class.getName())) return true;
+                  }
+                  return false;
+              }
+
+              TextView label(String text, int size, String hexColor) {
+                  TextView t = new TextView(this);
+                  t.setText(text);
+                  t.setTextSize(TypedValue.COMPLEX_UNIT_SP, size);
+                  t.setTypeface(Typeface.DEFAULT_BOLD);
+                  t.setTextColor(Color.parseColor(hexColor));
+                  t.setPadding(0, dp(12), 0, dp(6));
+                  return t;
+              }
+
+              void show() {
+                  ScrollView scroll = new ScrollView(this);
+                  scroll.setBackgroundColor(Color.parseColor("#FFF8E7"));
+                  root = new LinearLayout(this);
+                  root.setOrientation(LinearLayout.VERTICAL);
+                  int pad = dp(18);
+                  root.setPadding(pad, pad, pad, pad);
+                  scroll.addView(root);
+                  setContentView(scroll);
+
+                  root.addView(label("🦁 Kids Maths App Lock", 26, "#312E81"));
+                  starsBadge = label("⭐ Total Stars Won: " + prefs.getInt("kids_stars", 0) + " 🌟", 16, "#D97706");
+                  root.addView(starsBadge);
+                  status = label("", 15, "#B45309");
+                  root.addView(status);
+
+                  permission = new Button(this);
+                  permission.setText("1. ENABLE ACCESSIBILITY SERVICE");
+                  permission.setTextColor(Color.WHITE);
+                  permission.setTypeface(Typeface.DEFAULT_BOLD);
+                  permission.setBackground(makeRoundedBg("#4F46E5", "#3730A3", 16, 2));
+                  root.addView(permission);
+                  permission.setOnClickListener(v -> new AlertDialog.Builder(this)
+                          .setTitle("Accessibility permission")
+                          .setMessage("Maths App Lock detects the app currently open so it can display a cute maths question. It does not read screen contents. Enable Maths App Lock on the next screen.")
+                          .setNegativeButton("Cancel", null)
+                          .setPositiveButton("Open settings", (d, w) -> startActivity(new Intent(Settings.ACTION_ACCESSIBILITY_SETTINGS)))
+                          .show());
+
+                  Switch enabled = new Switch(this);
+                  enabled.setText("Protection enabled");
+                  enabled.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                  enabled.setTypeface(Typeface.DEFAULT_BOLD);
+                  enabled.setTextColor(Color.parseColor("#1E293B"));
+                  enabled.setChecked(prefs.getBoolean("enabled", true));
+                  enabled.setPadding(0, dp(14), 0, dp(10));
+                  root.addView(enabled);
+                  enabled.setOnCheckedChangeListener((b, on) -> prefs.edit().putBoolean("enabled", on).apply());
+
+                  root.addView(label("Multiplication tables (Kids Level)", 18, "#1E293B"));
+                  Spinner range = new Spinner(this);
+                  String[] ranges = {"1 to 3 (5-6 Yrs Beginner 🌱)", "1 to 5 (Kids Easy ⭐)", "2 to 5 (Kids Fun 🎈)", "2 to 10 (Standard 🏆)", "2 to 12 (Clever 🚀)", "2 to 20 (Master 👑)"};
+                  int[][] minMax = {{1, 3}, {1, 5}, {2, 5}, {2, 10}, {2, 12}, {2, 20}};
+                  range.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, ranges));
+                  int savedMin = prefs.getInt("min", 1), savedMax = prefs.getInt("max", 5), selIdx = 1;
+                  for (int i = 0; i < minMax.length; i++) {
+                      if (minMax[i][0] == savedMin && minMax[i][1] == savedMax) { selIdx = i; break; }
+                  }
+                  range.setSelection(selIdx);
+                  root.addView(range);
+                  range.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                      public void onNothingSelected(AdapterView<?> p) {}
+                      public void onItemSelected(AdapterView<?> p, View v, int i, long id) {
+                          prefs.edit().putInt("min", minMax[i][0]).putInt("max", minMax[i][1]).apply();
+                      }
+                  });
+
+                  root.addView(label("Ask again", 18, "#1E293B"));
+                  Spinner delay = new Spinner(this);
+                  String[] delays = {"Every time I leave the app", "After 1 minute", "After 5 minutes", "After 15 minutes"};
+                  delay.setAdapter(new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, delays));
+                  int m = prefs.getInt("delay", 0);
+                  delay.setSelection(m == 1 ? 1 : m == 5 ? 2 : m == 15 ? 3 : 0);
+                  root.addView(delay);
+                  delay.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                      public void onNothingSelected(AdapterView<?> p) {}
+                      public void onItemSelected(AdapterView<?> p, View v, int i, long id) {
+                          prefs.edit().putInt("delay", new int[]{0, 1, 5, 15}[i]).apply();
+                          LockService.unlocked.clear();
+                      }
+                  });
+
+                  Button previewBtn = new Button(this);
+                  previewBtn.setText("🎨 Preview Cute Kids Lock Screen");
+                  previewBtn.setAllCaps(false);
+                  previewBtn.setTextColor(Color.WHITE);
+                  previewBtn.setTypeface(Typeface.DEFAULT_BOLD);
+                  previewBtn.setBackground(makeRoundedBg("#10B981", "#059669", 16, 2));
+                  LinearLayout.LayoutParams prevLp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  prevLp.topMargin = dp(14);
+                  prevLp.bottomMargin = dp(8);
+                  previewBtn.setOnClickListener(v -> {
+                      LockService.currentTarget = "preview";
+                      Intent i = new Intent(MainActivity.this, ChallengeActivity.class);
+                      i.putExtra("locked_package", "preview");
+                      startActivity(i);
+                  });
+                  root.addView(previewBtn, prevLp);
+
+                  root.addView(label("2. Select apps to protect", 20, "#312E81"));
+                  apps = new LinearLayout(this);
+                  apps.setOrientation(LinearLayout.VERTICAL);
+                  root.addView(apps);
+                  loadApps();
+                  onResume();
+              }
+
+              void loadApps() {
+                  PackageManager pm = getPackageManager();
+                  Intent intent = new Intent(Intent.ACTION_MAIN);
+                  intent.addCategory(Intent.CATEGORY_LAUNCHER);
+                  List<ResolveInfo> list = pm.queryIntentActivities(intent, 0);
+                  Collections.sort(list, (a, b) -> a.loadLabel(pm).toString().compareToIgnoreCase(b.loadLabel(pm).toString()));
+                  Set<String> seen = new HashSet<>();
+                  for (ResolveInfo r : list) {
+                      String pkg = r.activityInfo.packageName;
+                      if (pkg.equals(getPackageName()) || pkg.equals("com.android.settings") || pkg.equals("com.google.android.dialer") || pkg.equals("com.samsung.android.dialer") || !seen.add(pkg)) continue;
+                      LinearLayout row = new LinearLayout(this);
+                      row.setGravity(Gravity.CENTER_VERTICAL);
+                      row.setPadding(dp(8), dp(8), dp(8), dp(8));
+                      ImageView icon = new ImageView(this);
+                      icon.setImageDrawable(r.loadIcon(pm));
+                      row.addView(icon, new LinearLayout.LayoutParams(dp(42), dp(42)));
+                      Switch sw = new Switch(this);
+                      sw.setText("   " + r.loadLabel(pm));
+                      sw.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                      sw.setTextColor(Color.parseColor("#1E293B"));
+                      sw.setChecked(prefs.getBoolean("app_" + pkg, false));
+                      row.addView(sw, new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT));
+                      sw.setOnCheckedChangeListener((b, on) -> {
+                          prefs.edit().putBoolean("app_" + pkg, on).apply();
+                          LockService.unlocked.remove(pkg);
+                      });
+                      apps.addView(row);
+                  }
+              }
+
+              private GradientDrawable makeRoundedBg(String fillHex, String strokeHex, int radiusDp, int strokeDp) {
+                  GradientDrawable gd = new GradientDrawable();
+                  gd.setColor(Color.parseColor(fillHex));
+                  gd.setCornerRadius(dp(radiusDp));
+                  gd.setStroke(dp(strokeDp), Color.parseColor(strokeHex));
+                  return gd;
+              }
+
+              private int dp(int val) {
+                  return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, val, getResources().getDisplayMetrics());
+              }
+          }
+          EOF
+
+          cat << 'EOF' > app/src/main/java/com/example/mathlock/ChallengeActivity.java
+          package com.example.mathlock;
+          import android.animation.ObjectAnimator;
+          import android.app.Activity;
+          import android.content.Context;
+          import android.content.Intent;
+          import android.content.SharedPreferences;
+          import android.graphics.Color;
+          import android.graphics.Typeface;
+          import android.graphics.drawable.GradientDrawable;
+          import android.media.AudioManager;
+          import android.media.ToneGenerator;
+          import android.os.Build;
+          import android.os.Bundle;
+          import android.os.Handler;
+          import android.os.Looper;
+          import android.os.SystemClock;
+          import android.os.VibrationEffect;
+          import android.os.Vibrator;
+          import android.util.TypedValue;
+          import android.view.Gravity;
+          import android.view.View;
+          import android.view.Window;
+          import android.view.WindowManager;
+          import android.widget.*;
+          import java.security.SecureRandom;
+
+          public class ChallengeActivity extends Activity {
+              private String target = "";
+              private int correctAnswer = 0;
+              private String currentInput = "";
+              private boolean isSolved = false;
+              private TextView mascotText, starsText, questionText, answerBox, feedbackText;
+              private LinearLayout questionCard;
+              private SharedPreferences prefs;
+              private final Handler handler = new Handler(Looper.getMainLooper());
+              private final SecureRandom random = new SecureRandom();
+              private final String[] mascots = {
+                      "🦁 Leo the Lion asks:",
+                      "🐼 Penny Panda asks:",
+                      "🦄 Sparkle Unicorn asks:",
+                      "🐰 Benny Bunny asks:",
+                      "🐸 Freddy Frog asks:",
+                      "🐶 Buddy Puppy asks:"
+              };
+
+              @Override
+              public void onCreate(Bundle b) {
+                  super.onCreate(b);
+                  requestWindowFeature(Window.FEATURE_NO_TITLE);
+                  getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+                  prefs = getSharedPreferences("lock", MODE_PRIVATE);
+                  target = getIntent().getStringExtra("locked_package");
+                  if (target == null || target.isEmpty()) target = LockService.currentTarget;
+                  if (target == null) { finish(); return; }
+                  buildKidsUI();
+                  generateNewQuestion();
+              }
+
+              @Override
+              protected void onNewIntent(Intent intent) {
+                  super.onNewIntent(intent);
+                  setIntent(intent);
+                  String pkg = intent.getStringExtra("locked_package");
+                  if (pkg != null && !pkg.isEmpty()) target = pkg;
+                  else if (LockService.currentTarget != null) target = LockService.currentTarget;
+                  isSolved = false;
+                  currentInput = "";
+                  generateNewQuestion();
+              }
+
+              private void buildKidsUI() {
+                  ScrollView scrollView = new ScrollView(this);
+                  scrollView.setFillViewport(true);
+                  scrollView.setBackgroundColor(Color.parseColor("#FFF8E7"));
+
+                  LinearLayout root = new LinearLayout(this);
+                  root.setOrientation(LinearLayout.VERTICAL);
+                  root.setGravity(Gravity.CENTER_HORIZONTAL);
+                  int pad = dp(16);
+                  root.setPadding(pad, dp(20), pad, pad);
+
+                  starsText = new TextView(this);
+                  starsText.setText("⭐ " + prefs.getInt("kids_stars", 0) + " Stars Won!");
+                  starsText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 18);
+                  starsText.setTypeface(Typeface.DEFAULT_BOLD);
+                  starsText.setTextColor(Color.parseColor("#92400E"));
+                  starsText.setPadding(dp(20), dp(8), dp(20), dp(8));
+                  starsText.setBackground(makeRoundedBg("#FDE68A", "#F59E0B", 50, 3));
+                  root.addView(starsText);
+
+                  mascotText = new TextView(this);
+                  mascotText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 22);
+                  mascotText.setTypeface(Typeface.DEFAULT_BOLD);
+                  mascotText.setTextColor(Color.parseColor("#4F46E5"));
+                  mascotText.setGravity(Gravity.CENTER);
+                  LinearLayout.LayoutParams mascotLp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  mascotLp.topMargin = dp(12);
+                  mascotLp.bottomMargin = dp(10);
+                  root.addView(mascotText, mascotLp);
+
+                  questionCard = new LinearLayout(this);
+                  questionCard.setOrientation(LinearLayout.VERTICAL);
+                  questionCard.setGravity(Gravity.CENTER);
+                  questionCard.setPadding(dp(20), dp(18), dp(20), dp(18));
+                  questionCard.setBackground(makeRoundedBg("#FFFFFF", "#A5B4FC", 32, 4));
+                  LinearLayout.LayoutParams cardLp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  cardLp.bottomMargin = dp(14);
+
+                  questionText = new TextView(this);
+                  questionText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 44);
+                  questionText.setTypeface(Typeface.DEFAULT_BOLD);
+                  questionText.setTextColor(Color.parseColor("#1E1B4B"));
+                  questionText.setGravity(Gravity.CENTER);
+                  questionCard.addView(questionText);
+
+                  answerBox = new TextView(this);
+                  answerBox.setText("?");
+                  answerBox.setTextSize(TypedValue.COMPLEX_UNIT_SP, 38);
+                  answerBox.setTypeface(Typeface.DEFAULT_BOLD);
+                  answerBox.setTextColor(Color.parseColor("#4338CA"));
+                  answerBox.setGravity(Gravity.CENTER);
+                  answerBox.setMinimumWidth(dp(140));
+                  answerBox.setPadding(dp(28), dp(8), dp(28), dp(8));
+                  answerBox.setBackground(makeRoundedBg("#EEF2FF", "#818CF8", 24, 3));
+                  LinearLayout.LayoutParams ansLp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  ansLp.topMargin = dp(10);
+                  questionCard.addView(answerBox, ansLp);
+
+                  feedbackText = new TextView(this);
+                  feedbackText.setText("Tap the right number! 👇");
+                  feedbackText.setTextSize(TypedValue.COMPLEX_UNIT_SP, 17);
+                  feedbackText.setTypeface(Typeface.DEFAULT_BOLD);
+                  feedbackText.setTextColor(Color.parseColor("#6366F1"));
+                  feedbackText.setGravity(Gravity.CENTER);
+                  LinearLayout.LayoutParams fbLp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  fbLp.topMargin = dp(10);
+                  questionCard.addView(feedbackText, fbLp);
+                  root.addView(questionCard, cardLp);
+
+                  GridLayout keypad = new GridLayout(this);
+                  keypad.setColumnCount(3);
+                  keypad.setRowCount(4);
+                  LinearLayout.LayoutParams gridLp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                  gridLp.bottomMargin = dp(12);
+
+                  String[] keys = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "🧹", "0", "⌫"};
+                  String[] bgColors = {"#FF6B6B", "#4ECDC4", "#FFD166", "#A78BFA", "#F472B6", "#38BDF8", "#34D399", "#FB923C", "#818CF8", "#EF4444", "#2DD4BF", "#F59E0B"};
+                  String[] borderColors = {"#E11D48", "#0D9488", "#D97706", "#7C3AED", "#DB2777", "#0284C7", "#059669", "#EA580C", "#4F46E5", "#B91C1C", "#0F766E", "#B45309"};
+
+                  for (int i = 0; i < keys.length; i++) {
+                      final String key = keys[i];
+                      Button btn = new Button(this);
+                      btn.setText(key);
+                      btn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 28);
+                      btn.setTypeface(Typeface.DEFAULT_BOLD);
+                      btn.setTextColor(Color.WHITE);
+                      btn.setAllCaps(false);
+                      btn.setBackground(makeRoundedBg(bgColors[i], borderColors[i], 24, 3));
+
+                      GridLayout.LayoutParams params = new GridLayout.LayoutParams();
+                      params.width = 0;
+                      params.height = dp(68);
+                      params.columnSpec = GridLayout.spec(GridLayout.UNDEFINED, 1f);
+                      params.setMargins(dp(6), dp(6), dp(6), dp(6));
+                      btn.setLayoutParams(params);
+                      btn.setOnClickListener(v -> { animateButtonBounce(v); onKeyTapped(key); });
+                      keypad.addView(btn);
+                  }
+                  root.addView(keypad, gridLp);
+
+                  Button homeBtn = new Button(this);
+                  homeBtn.setText("🏠 Go Home");
+                  homeBtn.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
+                  homeBtn.setTypeface(Typeface.DEFAULT_BOLD);
+                  homeBtn.setTextColor(Color.parseColor("#475569"));
+                  homeBtn.setAllCaps(false);
+                  homeBtn.setPadding(dp(24), dp(10), dp(24), dp(10));
+                  homeBtn.setBackground(makeRoundedBg("#E2E8F0", "#CBD5E1", 50, 2));
+                  homeBtn.setOnClickListener(v -> goHome());
+                  root.addView(homeBtn);
+
+                  scrollView.addView(root);
+                  setContentView(scrollView);
+              }
+
+              private void generateNewQuestion() {
+                  int minTable = Math.max(1, prefs.getInt("min", 1));
+                  int maxTable = Math.max(minTable, Math.min(20, prefs.getInt("max", 5)));
+                  int a = minTable + random.nextInt(maxTable - minTable + 1);
+                  int b = 1 + random.nextInt(10);
+                  correctAnswer = a * b;
+                  mascotText.setText(mascots[random.nextInt(mascots.length)]);
+                  questionText.setText(a + " × " + b + " = ?");
+                  answerBox.setText("?");
+                  answerBox.setTextColor(Color.parseColor("#4338CA"));
+                  answerBox.setBackground(makeRoundedBg("#EEF2FF", "#818CF8", 24, 3));
+                  feedbackText.setText("Tap the right number! 👇");
+                  feedbackText.setTextColor(Color.parseColor("#6366F1"));
+              }
+
+              private void onKeyTapped(String key) {
+                  if (isSolved) return;
+                  if (key.equals("🧹")) { currentInput = ""; updateAnswerDisplay(); return; }
+                  if (key.equals("⌫")) {
+                      if (currentInput.length() > 0) {
+                          currentInput = currentInput.substring(0, currentInput.length() - 1);
+                          updateAnswerDisplay();
+                      }
+                      return;
+                  }
+                  String targetStr = String.valueOf(correctAnswer);
+                  if (currentInput.length() >= targetStr.length()) return;
+                  currentInput += key;
+                  updateAnswerDisplay();
+                  try {
+                      int enteredVal = Integer.parseInt(currentInput);
+                      if (enteredVal == correctAnswer) onCorrectAnswer();
+                      else if (currentInput.length() >= targetStr.length()) onWrongAnswer();
+                      else playFeedback(true, 30);
+                  } catch (NumberFormatException ignored) {}
+              }
+
+              private void updateAnswerDisplay() {
+                  if (currentInput.isEmpty()) {
+                      answerBox.setText("?");
+                      answerBox.setTextColor(Color.parseColor("#4338CA"));
+                  } else {
+                      answerBox.setText(currentInput);
+                      answerBox.setTextColor(Color.parseColor("#1E1B4B"));
+                  }
+              }
+
+              private void onCorrectAnswer() {
+                  isSolved = true;
+                  playFeedback(true, 120);
+                  int newStars = prefs.getInt("kids_stars", 0) + 1;
+                  prefs.edit().putInt("kids_stars", newStars).apply();
+                  starsText.setText("⭐ " + newStars + " Stars Won!");
+                  answerBox.setBackground(makeRoundedBg("#DCFCE7", "#22C55E", 24, 4));
+                  answerBox.setTextColor(Color.parseColor("#15803D"));
+                  feedbackText.setText("🎉 Yay! Great Job! ⭐");
+                  feedbackText.setTextColor(Color.parseColor("#16A34A"));
+                  if (target != null && !target.equals("preview")) {
+                      int minutes = prefs.getInt("delay", 0);
+                      LockService.unlocked.put(target, minutes == 0 ? Long.MAX_VALUE : SystemClock.elapsedRealtime() + minutes * 60000L);
+                  }
+                  LockService.challengeVisible = false;
+                  handler.postDelayed(this::finish, 350);
+              }
+
+              private void onWrongAnswer() {
+                  playFeedback(false, 200);
+                  answerBox.setBackground(makeRoundedBg("#FEE2E2", "#EF4444", 24, 4));
+                  answerBox.setTextColor(Color.parseColor("#B91C1C"));
+                  feedbackText.setText("🙈 Oops! Try again!");
+                  feedbackText.setTextColor(Color.parseColor("#DC2626"));
+                  ObjectAnimator shake = ObjectAnimator.ofFloat(questionCard, "translationX", 0f, 18f, -18f, 12f, -12f, 0f);
+                  shake.setDuration(400);
+                  shake.start();
+                  handler.postDelayed(() -> {
+                      if (!isSolved) {
+                          currentInput = "";
+                          answerBox.setText("?");
+                          answerBox.setTextColor(Color.parseColor("#4338CA"));
+                          answerBox.setBackground(makeRoundedBg("#EEF2FF", "#818CF8", 24, 3));
+                      }
+                  }, 550);
+              }
+
+              private void animateButtonBounce(View v) {
+                  ObjectAnimator.ofFloat(v, "scaleX", 1f, 0.88f, 1.05f, 1f).setDuration(180).start();
+                  ObjectAnimator.ofFloat(v, "scaleY", 1f, 0.88f, 1.05f, 1f).setDuration(180).start();
+              }
+
+              private void playFeedback(boolean positive, int vibrateMs) {
+                  try {
+                      ToneGenerator tg = new ToneGenerator(AudioManager.STREAM_MUSIC, 80);
+                      tg.startTone(positive ? ToneGenerator.TONE_PROP_ACK : ToneGenerator.TONE_PROP_NACK, 120);
+                  } catch (Exception ignored) {}
+                  try {
+                      Vibrator vib = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                      if (vib != null) {
+                          if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) vib.vibrate(VibrationEffect.createOneShot(vibrateMs, VibrationEffect.DEFAULT_AMPLITUDE));
+                          else vib.vibrate(vibrateMs);
+                      }
+                  } catch (Exception ignored) {}
+              }
+
+              private GradientDrawable makeRoundedBg(String fillHex, String strokeHex, int radiusDp, int strokeDp) {
+                  GradientDrawable gd = new GradientDrawable();
+                  gd.setColor(Color.parseColor(fillHex));
+                  gd.setCornerRadius(dp(radiusDp));
+                  gd.setStroke(dp(strokeDp), Color.parseColor(strokeHex));
+                  return gd;
+              }
+
+              private int dp(int val) {
+                  return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, val, getResources().getDisplayMetrics());
+              }
+
+              private void goHome() {
+                  if ("preview".equals(target)) { LockService.challengeVisible = false; finish(); return; }
+                  Intent home = new Intent(Intent.ACTION_MAIN);
+                  home.addCategory(Intent.CATEGORY_HOME);
+                  home.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                  startActivity(home);
+                  finish();
+              }
+
+              @Override public void onBackPressed() { goHome(); }
+              @Override protected void onDestroy() { LockService.challengeVisible = false; super.onDestroy(); }
+          }
+          EOF
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Setup Gradle 8.7
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.7'
+
+      - name: Build Debug APK
+        run: gradle assembleDebug --no-daemon
+
+      - name: Upload Installable APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: MathsAppLock-V2-Kids-apk
+          path: app/build/outputs/apk/debug/app-debug.apk
